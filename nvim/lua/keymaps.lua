@@ -36,6 +36,8 @@ keymap.set('i', '<C-f>', '<Right>')
 -- 設定ファイルを開く
 -- keymap.set('n','<F1>',':edit $MYVIMRC<CR>')
 
--- 行移動
+-- 移動
 keymap.set('n', '<S-h>', '0')
 keymap.set('n', '<S-l>', '$')
+keymap.set('n', '<C-j>', '10j')
+keymap.set('n', '<C-k>', '10k')
