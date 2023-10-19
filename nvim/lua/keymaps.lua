@@ -6,6 +6,7 @@ vim.g.mapleader = ' '
 
 if vim.g.vscode then
   keymap.set("n", "<leader>s", "<Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>")
+  keymap.set("n", "<leader>S", "<Cmd>call VSCodeNotify('workbench.view.search')<CR>")
   keymap.set('n', '<leader>f', "<Cmd>call VSCodeNotify('workbench.view.explorer')<CR>")
   keymap.set('n', '<leader>b', "<Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>")
   keymap.set('n', '<C-h>', "<Cmd>call VSCodeNotify('workbench.action.previousEditor')<CR>")
@@ -14,11 +15,13 @@ if vim.g.vscode then
 else
   keymap.set('i','jj','<Esc>')
   keymap.set('n', '<leader>s', function() require("telescope.builtin").find_files { hidden = true } end, {noremap = true})
+  keymap.set('n', '<leader>S', function() require("telescope.builtin").live_grep { hidden = true } end, {noremap = true})
   keymap.set('n', '<leader>f', '<Cmd>Fern .<CR>')
   keymap.set('n', '<C-h>', "<Cmd>bprev<CR>")
   keymap.set('n', '<C-l>', "<Cmd>bnext<CR>")
   keymap.set('n', '<C-w>', "<Cmd>bdelete<CR>")
 end
+
 -- 画面分割
 keymap.set('n', 'ss', ':split <Return><C-w>w')
 keymap.set('n', 'sv', ':vsplit<Return><C-w>w')
