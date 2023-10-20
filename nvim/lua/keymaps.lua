@@ -41,3 +41,6 @@ keymap.set('n', '<S-h>', '0')
 keymap.set('n', '<S-l>', '$')
 keymap.set('n', '<C-j>', '10j')
 keymap.set('n', '<C-k>', '10k')
+
+-- terminal mode
+keymap.set('t', '<ESC>', '<C-\\><C-n>')
