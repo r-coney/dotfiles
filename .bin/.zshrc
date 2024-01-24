@@ -15,3 +15,4 @@ alias gittemp='less ~/.commit_template'
 alias alias vi="nvim"
 alias vim="nvim"
 alias view="nvim -R"
+alias zshrc="vi ~/.zshrc"
