@@ -17,7 +17,7 @@ else
   keymap.set('n', '<leader>s', function() require("telescope.builtin").find_files { hidden = true } end, {noremap = true})
   keymap.set('n', '<leader>S', function() require("telescope.builtin").live_grep { hidden = true } end, {noremap = true})
   keymap.set('n', '<leader>f', '<Cmd>Fern .<CR>')
-  keymap.set('n', '<C-h>', "<Cmd>bprev<CR>")
+  keymap.set('n', '<C-h>', "<Cmd>bprevious<CR>")
   keymap.set('n', '<C-l>', "<Cmd>bnext<CR>")
   keymap.set('n', '<C-w>', "<Cmd>bdelete<CR>")
 end
@@ -35,6 +35,9 @@ keymap.set('n', 'sl', '<C-w>l')
 keymap.set('i', '<C-f>', '<Right>')
 -- 設定ファイルを開く
 -- keymap.set('n','<F1>',':edit $MYVIMRC<CR>')
+
+-- 削除でコピーされないように変更
+keymap.set('n', 'd', '"_d')
 
 -- 移動
 keymap.set('n', '<S-h>', '0')
