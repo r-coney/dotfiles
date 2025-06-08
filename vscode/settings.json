@@ -1,35 +1,6 @@
 {
-    "files.autoSave": "afterDelay",
-    "editor.fontSize": 14,
-    "editor.wordWrap": "on",
-    "editor.fontFamily": "Ricty Diminished",
-    "explorer.confirmDelete": false,
-    "emmet.variables": {
-        "lang": "ja"
-    },
-    "workbench.iconTheme": "material-icon-theme",
-    "terminal.integrated.enableMultiLinePasteWarning": false,
-    "bracketPairColorizer.depreciation-notice": false,
-    "intelephense.diagnostics.undefinedClassConstants": false,
-    "intelephense.diagnostics.undefinedConstants": false,
-    "intelephense.diagnostics.undefinedFunctions": false,
-    "intelephense.diagnostics.undefinedMethods": false,
-    "intelephense.diagnostics.undefinedProperties": false,
-    "intelephense.diagnostics.undefinedTypes": false,
-    "gitlens.hovers.currentLine.over": "line",
-    "gitlens.defaultDateFormat": null,
-    "emmet.triggerExpansionOnTab": true,
-    "php.validate.executablePath": null,
-    "[php]": {
-        "cSpell.fixSpellingWithRenameProvider": false
-    },
-    "editor.inlineSuggest.enabled": true,
-    "workbench.list.automaticKeyboardNavigation": false,
-    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
-    "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
-    "vim.useCtrlKeys": true,
-    "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
-    },
-    "workbench.colorTheme": "Iceberg"
+	"editor.tabSize": 2,
+	"workbench.colorTheme": "Iceberg",
+	"editor.fontFamily": "'Hack Nerd Font' ,Menlo, Monaco, 'Courier New', monospace",
+	"editor.formatOnSave": true
 }
