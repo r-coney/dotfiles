@@ -8,28 +8,28 @@ readonly imgName="${DOWNLOADS_PATH}/qr_${date}.png"
 
 # 使用方法
 function usage {
-  cat <<EOF
+	cat <<EOF
 $(basename ${0}) is a tool for ...
 
 USAGE:
-    $(basename ${0}) <CONTENTS>
+	$(basename ${0}) <CONTENTS>
 EOF
 }
 
 # 引数がない場合
 if [ $# = 0 ]; then
-  usage
-  exit
+	usage
+	exit
 fi
 
 # オプションが指定された場合の処理
 while getopts ":h" optKey; do
-  case "$optKey" in
-  *)
-    usage
-    exit
-    ;;
-  esac
+	case "$optKey" in
+	*)
+		usage
+		exit
+		;;
+	esac
 done
 
 # qrコード生成

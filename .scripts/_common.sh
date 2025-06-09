@@ -10,18 +10,18 @@ readonly COLOR_SUCCESS='\033[34;1m'
 
 # print title
 function title() {
-  printf "${COLOR_TITLE}$1${COLOR_NONE}\n"
-  printf "${COLOR_GRAY}==============================${COLOR_NONE}\n"
+	printf "${COLOR_TITLE}$1${COLOR_NONE}\n"
+	printf "${COLOR_GRAY}==============================${COLOR_NONE}\n"
 }
 
 # print info
 function info() {
-  printf "${COLOR_INFO}Info: ${COLOR_NONE}$1\n"
+	printf "${COLOR_INFO}Info: ${COLOR_NONE}$1\n"
 }
 
 #print success
 function success() {
-  printf "${COLOR_SUCCESS}$1${COLOR_NONE}\n"
+	printf "${COLOR_SUCCESS}$1${COLOR_NONE}\n"
 }
 
 # print error
@@ -37,8 +37,8 @@ function success() {
 
 # check OS
 function verifyIfMacOS() {
-  if [ "$(uname)" != "Darwin" ] ; then
-    echo "Not macOS!"
-    exit 1
-  fi
+	if [ "$(uname)" != "Darwin" ]; then
+		echo "Not macOS!"
+		exit 1
+	fi
 }
