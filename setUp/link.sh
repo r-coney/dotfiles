@@ -1,25 +1,35 @@
 #!/bin/bash
 
 readonly DOTFILES="$(pwd)"
-readonly SCRIPT_DIR="${DOTFILES}/.bin"
+readonly SCRIPT_DIR="${DOTFILES}/.scripts"
 source "${SCRIPT_DIR}/_common.sh"
 
 # Create symbolic link for dotfiles
 function link_dotfiles() {
-  info "Creating dotfiles symlinks"
-  for dotfile in "${SCRIPT_DIR}"/.??* ; do
-    filename=`basename $dotfile`
-    [[ "$filename" == ".git" ]] && continue
-    [[ "$filename" == ".github" ]] && continue
-    [[ "$filename" == ".DS_Store" ]] && continue
+	info "Creating dotfiles symlinks"
+	# .Brewfileのシンボリックリンクを作成
+	if [ -e "${HOME}/.Brewfile" ]; then
+		info "~/.Brewfile already exists... Skipping."
+	else
+		info "Adding symlink to .Brewfile at ${HOME}/.Brewfile"
+		ln -s "${DOTFILES}/setUp/.Brewfile" "${HOME}/.Brewfile"
+	fi
 
-    if [ ! -e "${HOME}/${filename}" ]; then
-      info "Adding symlink to ${filename} at ${HOME}/${filename}"
-      ln -s "${SCRIPT_DIR}/${filename}" "${HOME}/${filename}"
-    else
-      info "~/${filename} already exists... Skipping."
-    fi
-  done
+	# .zshrcのシンボリックリンクを作成
+	if [ -e "${HOME}/.zshrc" ]; then
+		info "~/.zshrc already exists... Skipping."
+	else
+		info "Adding symlink to .zshrc at ${HOME}/.zshrc"
+		ln -s "${DOTFILES}/setUp/.zshrc" "${HOME}/.zshrc"
+	fi
+
+	# .scriptsディレクトリのシンボリックリンクを作成
+	if [ -d "${HOME}/.scripts" ]; then
+		info "~/.scripts already exists... Skipping."
+	else
+		info "Adding symlink to .scripts at ${HOME}/.scripts"
+		ln -s "${DOTFILES}/.scripts" "${HOME}/.scripts"
+	fi
 }
 
 # Create directory for neovim
@@ -62,15 +72,15 @@ function link_dotfiles() {
 
 # Create symbolic links
 function symlinks() {
-  title "Creating symlinks"
+	title "Creating symlinks"
 
-  link_dotfiles
+	link_dotfiles
 
-  # create_nvim_directory
-  # link_nvim 'init'
-  # link_nvim 'after/plugin'
-  # link_nvim 'lua'
-  # link_nvim 'plugin'
+	# create_nvim_directory
+	# link_nvim 'init'
+	# link_nvim 'after/plugin'
+	# link_nvim 'lua'
+	# link_nvim 'plugin'
 }
 
 symlinks
