@@ -1,6 +1,6 @@
 #!/bin/bash
 
-readonly DOTFILES="$(pwd)"
+readonly DOTFILES=$(pwd)
 readonly SCRIPT_DIR="${DOTFILES}/.scripts"
 source "${SCRIPT_DIR}/_common.sh"
 
