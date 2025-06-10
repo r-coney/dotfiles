@@ -3,8 +3,4 @@ require("config.lazy")
 require("config.keymaps")
 require("config.options")
 
-vim.cmd('language en_US.UTF-8')
-
 if vim.g.vscode then return end
-
-vim.cmd [[colorscheme iceberg]]
