@@ -4,42 +4,22 @@ readonly DOTFILES=$(pwd)
 readonly SCRIPT_DIR="${DOTFILES}/.scripts"
 source "${SCRIPT_DIR}/_common.sh"
 
-# Create symbolic links
-function symlinks() {
-	title "Creating symlinks"
+create_symlink() {
+	local source="$1"
+	local target="$2"
 
-	# .Brewfileのシンボリックリンクを作成
-	if [ -e "${HOME}/.Brewfile" ]; then
-		info "~/.Brewfile already exists... Skipping."
+	if [ -e "$target" ] || [ -d "$target" ]; then
+		info "$target already exists... Skipping."
 	else
-		info "Adding symlink to .Brewfile at ${HOME}/.Brewfile"
-		ln -s "${DOTFILES}/.Brewfile" "${HOME}/.Brewfile"
-	fi
-
-	# .zshrcのシンボリックリンクを作成
-	if [ -e "${HOME}/.zshrc" ]; then
-		info "~/.zshrc already exists... Skipping."
-	else
-		info "Adding symlink to .zshrc at ${HOME}/.zshrc"
-		ln -s "${DOTFILES}/.zshrc" "${HOME}/.zshrc"
-	fi
-
-	# .scriptsディレクトリのシンボリックリンクを作成
-	if [ -d "${HOME}/.scripts" ]; then
-		info "~/.scripts already exists... Skipping."
-	else
-		info "Adding symlink to .scripts at ${HOME}/.scripts"
-		ln -s "${DOTFILES}/.scripts" "${HOME}/.scripts"
-	fi
-
-	# .config/nvimのシンボリックリンクを作成
-	if [ -d "${HOME}/.config/nvim" ]; then
-		info "~/.config/nvim already exists... Skipping."
-	else
-		info "Adding symlink to .config/nvim at ${HOME}/.config/nvim"
-		ln -s "${DOTFILES}/nvim" "${HOME}/.config/nvim"
+		info "Adding symlink: $target → $source"
+		ln -s "$source" "$target"
 	fi
 }
 
-symlinks
+title "Creating symlinks"
+create_symlink "${DOTFILES}/.Brewfile" "${HOME}/.Brewfile"
+create_symlink "${DOTFILES}/.zshrc" "${HOME}/.zshrc"
+create_symlink "${DOTFILES}/.scripts" "${HOME}/.scripts"
+create_symlink "${DOTFILES}/nvim" "${HOME}/.config/nvim"
+
 success "Done."
