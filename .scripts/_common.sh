@@ -21,6 +21,7 @@ function info() {
 
 #print success
 function success() {
+	printf "${COLOR_GRAY}==============================${COLOR_NONE}\n"
 	printf "${COLOR_SUCCESS}$1${COLOR_NONE}\n"
 }
 
