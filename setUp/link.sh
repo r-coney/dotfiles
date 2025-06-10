@@ -7,13 +7,13 @@ source "${SCRIPT_DIR}/_common.sh"
 # Create symbolic links
 function symlinks() {
 	title "Creating symlinks"
-	info "Creating dotfiles symlinks"
+
 	# .Brewfileのシンボリックリンクを作成
 	if [ -e "${HOME}/.Brewfile" ]; then
 		info "~/.Brewfile already exists... Skipping."
 	else
 		info "Adding symlink to .Brewfile at ${HOME}/.Brewfile"
-		ln -s "${DOTFILES}/setUp/.Brewfile" "${HOME}/.Brewfile"
+		ln -s "${DOTFILES}/.Brewfile" "${HOME}/.Brewfile"
 	fi
 
 	# .zshrcのシンボリックリンクを作成
@@ -21,7 +21,7 @@ function symlinks() {
 		info "~/.zshrc already exists... Skipping."
 	else
 		info "Adding symlink to .zshrc at ${HOME}/.zshrc"
-		ln -s "${DOTFILES}/setUp/.zshrc" "${HOME}/.zshrc"
+		ln -s "${DOTFILES}/.zshrc" "${HOME}/.zshrc"
 	fi
 
 	# .scriptsディレクトリのシンボリックリンクを作成
