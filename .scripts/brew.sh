@@ -1,7 +1,6 @@
 #!/bin/bash
 
-readonly DOTFILES=$(pwd)
-readonly SCRIPT_DIR="${DOTFILES}/.scripts"
+readonly SCRIPT_DIR="${HOME}/.scripts"
 source "${SCRIPT_DIR}/_common.sh"
 
 verifyIfMacOS

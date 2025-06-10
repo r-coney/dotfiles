@@ -13,8 +13,8 @@ link:
 
 # Install macOS applications.
 brew:
-	setUp/brew.sh
+	.scripts/brew.sh
 
 # Install VSCode extensions.
 vscode:
-	setUp/vscode.sh
+	.scripts/vscode.sh
