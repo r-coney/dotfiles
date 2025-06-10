@@ -55,8 +55,8 @@ keymap.set("n", "d", '"_d', {desc = "Delete without yanking"})
 -- 行頭・行末・高速移動
 keymap.set("n", "<S-h>", "0", {desc = "Move to line start"})
 keymap.set("n", "<S-l>", "$", {desc = "Move to line end"})
-keymap.set("n", "<C-j>", "10j", {desc = "Move down 10 lines"})
-keymap.set("n", "<C-k>", "10k", {desc = "Move up 10 lines"})
+keymap.set("n", "<C-j>", "5j", {desc = "Move down 10 lines"})
+keymap.set("n", "<C-k>", "5k", {desc = "Move up 10 lines"})
 
 -- ターミナルモード → ノーマルに戻る
 keymap.set("t", "<ESC>", "<C-\\><C-n>", {desc = "Escape terminal mode"})
