@@ -28,7 +28,7 @@ create_symlink() {
 }
 
 title "Creating symlinks"
-create_symlink "${DOTFILES}/.Brewfile" "${HOME}/.Brewfile"
+create_symlink "${DOTFILES}/homebrew/.Brewfile" "${HOME}/.Brewfile"
 create_symlink "${DOTFILES}/.zshrc" "${HOME}/.zshrc"
 create_symlink "${DOTFILES}/.scripts" "${HOME}/.scripts"
 create_symlink "${DOTFILES}/nvim" "${HOME}/.config/nvim"
