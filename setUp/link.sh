@@ -9,9 +9,20 @@ create_symlink() {
 	local target="$2"
 
 	if [ -e "$target" ] || [ -d "$target" ]; then
-		info "$target already exists... Skipping."
+		echo "⚠️  '$target' already exists."
+		read -p "Do you want to overwrite it? (y/n): " choice
+		case "$choice" in
+		y | Y)
+			echo "🔁 Overwriting '$target' with symlink to '$source'"
+			rm -rf "$target"
+			ln -s "$source" "$target"
+			;;
+		*)
+			echo "⏭️  Skipping symlink creation for '$target'"
+			;;
+		esac
 	else
-		info "Adding symlink: $target → $source"
+		echo "🔗 Creating symlink: '$target' → '$source'"
 		ln -s "$source" "$target"
 	fi
 }
@@ -21,5 +32,7 @@ create_symlink "${DOTFILES}/.Brewfile" "${HOME}/.Brewfile"
 create_symlink "${DOTFILES}/.zshrc" "${HOME}/.zshrc"
 create_symlink "${DOTFILES}/.scripts" "${HOME}/.scripts"
 create_symlink "${DOTFILES}/nvim" "${HOME}/.config/nvim"
+create_symlink "${DOTFILES}/vscode/settings.json" "${HOME}/Library/Application Support/Code/User/settings.json"
+create_symlink "${DOTFILES}/vscode/keybindings.json" "${HOME}/Library/Application Support/Code/User/keybindings.json"
 
 success "Done."

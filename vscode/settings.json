@@ -2,5 +2,10 @@
 	"editor.tabSize": 2,
 	"workbench.colorTheme": "Iceberg",
 	"editor.fontFamily": "'Hack Nerd Font' ,Menlo, Monaco, 'Courier New', monospace",
-	"editor.formatOnSave": true
+	"editor.formatOnSave": true,
+	"extensions.experimental.affinity": {
+		"asvetliakov.vscode-neovim": 1
+	},
+	"vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
+	"git.openRepositoryInParentFolders": "never"
 }
