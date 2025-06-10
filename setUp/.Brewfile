@@ -1,5 +1,6 @@
 brew "git"
 brew "neovim"
+brew "node"
 brew "shfmt"
 cask "docker"
 cask "font-hack-nerd-font"
