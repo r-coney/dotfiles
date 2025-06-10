@@ -11,3 +11,7 @@ alias d='docker'
 alias dc='docker compose'
 alias gittemp='less ~/.commit_template'
 alias zshrc="vi ~/.zshrc"
+alias brewfile="vi ~/.Brewfile"
+alias dotfiles="cd ~/dotfiles"
+alias vim="nvim"
+alias vi="nvim"
