@@ -1,3 +1,53 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
+
+-- leader: プラグイン系のprefix
+-- Ctrl:   通常キーのprefix
+
+local keymap = vim.keymap
+vim.g.mapleader = ' '
+
+if vim.g.vscode then
+  keymap.set("n", "<leader>s", "<Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>")
+  keymap.set("n", "<leader>S", "<Cmd>call VSCodeNotify('workbench.view.search')<CR>")
+  keymap.set('n', '<leader>f', "<Cmd>call VSCodeNotify('workbench.view.explorer')<CR>")
+  keymap.set('n', '<leader>b', "<Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>")
+  keymap.set('n', '<C-h>', "<Cmd>call VSCodeNotify('workbench.action.previousEditor')<CR>")
+  keymap.set('n', '<C-l>', "<Cmd>call VSCodeNotify('workbench.action.nextEditor')<CR>")
+  keymap.set('n', '<C-W>', "<Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>")
+else
+  keymap.set('i','jj','<Esc>')
+  keymap.set('n', '<leader>s', function() require("telescope.builtin").find_files { hidden = true } end, {noremap = true})
+  keymap.set('n', '<leader>S', function() require("telescope.builtin").live_grep { hidden = true } end, {noremap = true})
+  keymap.set('n', '<leader>f', '<Cmd>Fern .<CR>')
+  keymap.set('n', '<C-h>', "<Cmd>bprevious<CR>")
+  keymap.set('n', '<C-l>', "<Cmd>bnext<CR>")
+  keymap.set('n', '<C-w>', "<Cmd>bdelete<CR>")
+end
+
+-- 画面分割
+keymap.set('n', 'ss', ':split <Return><C-w>w')
+keymap.set('n', 'sv', ':vsplit<Return><C-w>w')
+-- アクティブウィンドウの移動
+keymap.set('n', 'sh', '<C-w>h')
+keymap.set('n', 'sk', '<C-w>k')
+keymap.set('n', 'sj', '<C-w>j')
+keymap.set('n', 'sl', '<C-w>l')
+
+-- Emacss風
+keymap.set('i', '<C-f>', '<Right>')
+-- 設定ファイルを開く
+-- keymap.set('n','<F1>',':edit $MYVIMRC<CR>')
+
+-- 削除でコピーされないように変更
+keymap.set('n', 'd', '"_d')
+
+-- 移動
+keymap.set('n', '<S-h>', '0')
+keymap.set('n', '<S-l>', '$')
+keymap.set('n', '<C-j>', '10j')
+keymap.set('n', '<C-k>', '10k')
+
+-- terminal mode
+keymap.set('t', '<ESC>', '<C-\\><C-n>')
