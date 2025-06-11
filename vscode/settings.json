@@ -6,6 +6,7 @@
 	"extensions.experimental.affinity": {
 		"asvetliakov.vscode-neovim": 1
 	},
+	"vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
 	"vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
 	"git.openRepositoryInParentFolders": "never"
 }
