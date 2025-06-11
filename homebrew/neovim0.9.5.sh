@@ -26,7 +26,12 @@ if [ -f "$(brew --repo my/local)/Formula/neovim@0.9.5.rb" ]; then
 	esac
 else
 	info "Creating custom Homebrew formula for neovim@0.9.5"
-	brew tap-new my/local
+	# tapが存在しない場合は作成
+	if ! brew tap | grep -q 'my/local'; then
+		info "Creating new Homebrew tap my/local"
+		brew tap my/local
+	fi
+
 	ln -s "${DOTFILES}/homebrew/neovim@0.9.5.rb" "$(brew --repo my/local)/Formula/neovim@0.9.5.rb"
 fi
 
