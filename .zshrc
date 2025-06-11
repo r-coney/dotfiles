@@ -16,7 +16,7 @@ alias brewfile='vi ~/.Brewfile'
 alias dotfiles='cd ~/dotfiles'
 alias vim='nvim'
 alias vi='nvim'
-alias scripts='ls ~/.scripts'
+alias scripts='ls -l ~/.scripts/'
 
 if [[ -f ~/.zshrc.local ]]; then
   source ~/.zshrc.local
