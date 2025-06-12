@@ -2,7 +2,7 @@
 
 readonly DOTFILES=$(pwd)
 readonly SCRIPT_DIR="${DOTFILES}/.scripts"
-source "${SCRIPT_DIR}/_common.sh"
+source "${SCRIPT_DIR}/_utils.sh"
 
 create_symlink() {
 	local source="$1"

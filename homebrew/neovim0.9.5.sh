@@ -5,7 +5,7 @@
 
 readonly DOTFILES=$(pwd)
 readonly SCRIPT_DIR="${HOME}/.scripts"
-source "${SCRIPT_DIR}/_common.sh"
+source "${SCRIPT_DIR}/_utils.sh"
 
 title 'Creating custom Homebrew formula for neovim@0.9.5'
 if [ -f "$(brew --repo my/local)/Formula/neovim@0.9.5.rb" ]; then

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 readonly SCRIPT_DIR="${HOME}/.scripts"
-source "${SCRIPT_DIR}/_common.sh"
+source "${SCRIPT_DIR}/_utils.sh"
 
 readonly DOTFILES_DIR="${HOME}/dotfiles"
 

@@ -2,11 +2,11 @@
 
 readonly DOCUMENTS_PATH="${HOME}/Projects"
 readonly SCRIPT_DIR="${HOME}/dotfiles/.bin"
-source "${SCRIPT_DIR}/_common.sh"
+source "${SCRIPT_DIR}/_utils.sh"
 
 # 使用方法
 function usage {
-    cat <<EOF
+  cat <<EOF
 $(basename ${0}) is a tool for ...
 
 USAGE:
@@ -23,10 +23,10 @@ fi
 # オプションが指定された場合の処理
 while getopts "h" optKey; do
   case "$optKey" in
-    *)
-      usage
-      exit
-      ;;
+  *)
+    usage
+    exit
+    ;;
   esac
 done
 
