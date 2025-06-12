@@ -30,6 +30,7 @@ create_symlink() {
 title "Creating symlinks"
 create_symlink "${DOTFILES}/homebrew/.Brewfile" "${HOME}/.Brewfile"
 create_symlink "${DOTFILES}/.zshrc" "${HOME}/.zshrc"
+create_symlink "${DOTFILES}/.gitconfig" "${HOME}/.gitconfig"
 create_symlink "${DOTFILES}/.scripts" "${HOME}/.scripts"
 create_symlink "${DOTFILES}/nvim" "${HOME}/.config/nvim"
 create_symlink "${DOTFILES}/vscode/settings.json" "${HOME}/Library/Application Support/Code/User/settings.json"
