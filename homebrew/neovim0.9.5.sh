@@ -1,16 +1,39 @@
+#!/bin/bash
 # vscode-neovimでバグがあるので、neovimのバージョンを0.9.5に固定する
 # バグが修正されたら、下記で作成したFomulaを削除して、neovimをアップグレードすること
-
-#!/bin/bash
-
 readonly DOTFILES=$(pwd)
 readonly SCRIPT_DIR="${HOME}/.scripts"
 source "${SCRIPT_DIR}/_utils.sh"
+# 使用方法
+function usage {
+	cat <<EOF
+Usage: $(basename "$0") [options]
+Description:
+	This script creates a custom Homebrew formula for neovim@0.9.5.
+	It checks if the formula already exists and prompts for confirmation before overwriting.
+Options:
+	-h    Show this help message and exit
+EOF
+}
+
+# オプションが指定された場合の処理
+while getopts "h" optKey; do
+	case "$optKey" in
+	h)
+		usage
+		exit 0
+		;;
+	*)
+		usage
+		exit 1
+		;;
+	esac
+done
 
 title 'Creating custom Homebrew formula for neovim@0.9.5'
 if [ -f "$(brew --repo my/local)/Formula/neovim@0.9.5.rb" ]; then
 	# 上書きするか確認
-	read -p "neovim@0.9.5 formula already exists. Do you want to overwrite it? (y/n): " choice
+	choice=$(question "neovim@0.9.5 formula already exists. Do you want to overwrite it? (y/n)")
 	case "$choice" in
 	[Yy]*)
 		info "Overwriting existing neovim@0.9.5 formula"
