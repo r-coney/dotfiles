@@ -1,4 +1,6 @@
 #!/bin/bash
+readonly SCRIPT_DIR="${HOME}/.scripts"
+source "${SCRIPT_DIR}/_utils.sh"
 
 # 使用方法
 function usage {
@@ -61,27 +63,30 @@ should_keep_branch() {
   return 1 # not keep
 }
 
+title "Delete Local Git Branches"
 # すべてのローカルブランチを確認
 for BRANCH in $(git branch | sed 's/[* ]//g'); do
   if [[ "$BRANCH" == "$CURRENT_BRANCH" ]]; then
-    echo "Skipping current branch: $BRANCH"
+    info "Skipping current branch: $BRANCH"
     continue
   fi
 
   if should_keep_branch "$BRANCH"; then
-    echo "Keeping branch: $BRANCH"
+    info "Keeping branch: $BRANCH"
     continue
   fi
 
   # 対話確認
-  read -p "Delete branch '$BRANCH'? [y/N]: " CONFIRM
+  CONFIRM=$(question "Delete branch '$BRANCH'? [y/N]")
   case "$CONFIRM" in
   [yY][eE][sS] | [yY])
     git branch -D "$BRANCH"
-    echo "Deleted branch: $BRANCH"
+    info "Deleted branch: $BRANCH"
     ;;
   *)
-    echo "Skipped branch: $BRANCH"
+    info "Skipped branch: $BRANCH"
     ;;
   esac
 done
+
+success "Done."

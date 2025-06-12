@@ -5,7 +5,7 @@ PROMPT='
 export PATH="$PATH:$HOME/.scripts"
 
 # Git
-export GIT_KEEP_BRANCHES='main,master,develop,release/*,hoge'
+export GIT_KEEP_BRANCHES='main,master,develop,release/*'
 
 alias ls='ls -FG'
 alias la='ls -aFG'
