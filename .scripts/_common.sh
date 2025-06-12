@@ -2,8 +2,8 @@
 
 readonly COLOR_GRAY="\033[1;38;5;243m"
 readonly COLOR_NONE="\033[0m"
-# readonly COLOR_RED="\033[1;31m"
-# readonly COLOR_YELLOW="\033[1;33m"
+readonly COLOR_RED="\033[38;2;226;120;120m"
+readonly COLOR_YELLOW="\033[38;2;226;200;120m"
 readonly COLOR_TITLE='\033[36;1m'
 readonly COLOR_INFO='\033[34;5m'
 readonly COLOR_SUCCESS='\033[34;1m'
@@ -26,20 +26,19 @@ function success() {
 }
 
 # print error
-# function error() {
-#  printf -e "${COLOR_RED}Error: ${COLOR_NONE}$1"
-#  exit 1
-#}
+function error() {
+	printf "${COLOR_RED}Error: ${COLOR_NONE}$1\n"
+	exit 1
+}
 
 # print warning
-# function warning() {
-#  printf -e "${COLOR_YELLOW}Warning: ${COLOR_NONE}$1"
-#}
+function warning() {
+	printf "${COLOR_YELLOW}Warning: ${COLOR_NONE}$1"
+}
 
 # check OS
 function verifyIfMacOS() {
 	if [ "$(uname)" != "Darwin" ]; then
-		echo "Not macOS!"
-		exit 1
+		error "Not macOS!"
 	fi
 }

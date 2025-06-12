@@ -9,7 +9,7 @@ create_symlink() {
 	local target="$2"
 
 	if [ -e "$target" ] || [ -d "$target" ]; then
-		info "⚠️  '$target' already exists."
+		warning "⚠️  '$target' already exists."
 		read -p "Do you want to overwrite it? (y/n): " choice
 		case "$choice" in
 		y | Y)
