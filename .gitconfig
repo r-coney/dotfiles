@@ -1,0 +1,9 @@
+[user]
+	name = r-coney
+	email = rstar0823@icloud.com
+
+[includeIf "gitdir:~/Works/"]
+  path = ~/.gitconfig.work
+
+[core]
+	ignorecase = false

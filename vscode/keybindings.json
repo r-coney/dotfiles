@@ -1,10 +1,37 @@
 // 既定値を上書きするには、このファイル内にキー バインドを挿入します
 [
-    // ノーマルモードへ戻る
-    {
-        "command": "vscode-neovim.compositeEscape1",
-        "key": "j",
-        "when": "neovim.mode == insert && editorTextFocus",
-        "args": "j"
-    },
+	{
+		"key": "ctrl+t",
+		"command": "workbench.action.terminal.focus",
+		"when": "neovim.mode == normal && editorTextFocus"
+	},
+	{
+		"key": "ctrl+t",
+		"command": "workbench.action.terminal.new",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+w",
+		"command": "workbench.action.terminal.kill",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+j",
+		"command": "workbench.action.terminal.focusNext",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+k",
+		"command": "workbench.action.terminal.focusPrevious",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+e",
+		"command": "workbench.action.focusFirstEditorGroup",
+		"when": "neovim.mode == normal && terminalFocus"
+	},
+	{
+		"key": "ctrl+n",
+		"command": "vscode-neovim.restart"
+	}
 ]

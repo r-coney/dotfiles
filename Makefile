@@ -1,14 +1,24 @@
-# Do everything
-all: link init brew
+.PHONY: vscode
 
-# Link dotfiles
-link:
-	.bin/link.sh
+# Do everything
+all: init link neovim0.9.5 brew vscode
 
 # Set initial preference.
 init:
-	.bin/init.sh
+	setUp/init.sh
+
+# Link dotfiles
+link:
+	setUp/link.sh
+
+# neovimバージョン固定
+neovim0.9.5:
+	homebrew/neovim0.9.5.sh
 
 # Install macOS applications.
 brew:
-	.bin/brew.sh
+	.scripts/brew_package.sh
+
+# Install VSCode extensions.
+vscode:
+	.scripts/code_extension.sh

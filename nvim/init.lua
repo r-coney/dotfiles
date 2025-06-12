@@ -1,16 +1,6 @@
-vim.cmd('language en_US.UTF-8')
-require("options")
-require("keymaps")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
+require("config.keymaps")
+require("config.options")
 
-if vim.g.vscode then
-  require("vscode")
-  vim.cmd[[colorscheme iceberg]]
-  return
-end
-
-require("plugins")
-require'nvim-treesitter.configs'.setup{highlight={enable=true}}
--- require("packer_compiled")
-require('git').setup()
-require("lualine").setup()
-vim.cmd[[colorscheme iceberg]]
+if vim.g.vscode then return end

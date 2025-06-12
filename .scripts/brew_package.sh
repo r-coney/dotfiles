@@ -1,25 +1,19 @@
 #!/bin/bash
 
-source "$(pwd)/.bin/_common.sh"
+readonly SCRIPT_DIR="${HOME}/.scripts"
+source "${SCRIPT_DIR}/_common.sh"
 
 verifyIfMacOS
 
-title 'Set initial preference'
-
-# xcode
-if [ -e "$(which xcode-select)" ]; then
-  info "Xcode already exists... Skipping."
-else 
-  info 'Installing Xcode ...'
-  xcode-select --install
-fi
-
-# homebrew
+title 'Installing packages with homebrew'
 if [ -e "$(which brew)" ]; then
   info "Homebrew already exists... Skipping."
 else
   info 'Installing Homebrew ...'
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
+
+info 'Installing packages from Brewfile ...'
+brew bundle --global
 
 success 'Done.'
