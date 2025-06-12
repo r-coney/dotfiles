@@ -1,11 +1,10 @@
 #!/bin/bash
+readonly SCRIPT_DIR="${HOME}/.scripts"
+source "${SCRIPT_DIR}/_utils.sh"
 
-readonly SCRIPTS_PATH="${HOME}/.scripts"
-readonly SHELL_SCRIPT_TEMPLATE="${SCRIPTS_PATH}/shellScriptTemplate.txt"
-readonly scriptName=$1
-readonly shellScript="${SCRIPTS_PATH}/${scriptName}.sh"
+readonly SHELL_SCRIPT_TEMPLATE="${SCRIPT_DIR}/script_template"
+readonly SCRIPT_NAME=$1
+readonly SHELL_SCRIPT="${SCRIPT_DIR}/${SCRIPT_NAME}.sh"
 
-cat $SHELL_SCRIPT_TEMPLATE;
-echo $shellScript
-cp $SHELL_SCRIPT_TEMPLATE $shellScript
-nvim $shellScript
+info "Creating shell script: ${SHELL_SCRIPT}"
+nvim $SHELL_SCRIPT
