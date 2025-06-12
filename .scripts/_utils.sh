@@ -42,3 +42,11 @@ function verifyIfMacOS() {
 		error "Not macOS!"
 	fi
 }
+
+# question prompt
+function question {
+	local prompt="$1"
+	local input
+	read -p "$(printf "${COLOR_YELLOW}${prompt}: ${COLOR_NONE}")" input
+	echo "$input"
+}
