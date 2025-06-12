@@ -7,7 +7,6 @@ BRANCH=$1
 
 if [ -z "$BRANCH" ]; then
   error "Usage: $0 branch_name"
-  exit 1
 fi
 
 # Fetch the specific branch from remote
@@ -25,6 +24,5 @@ else
     git checkout -b "$BRANCH" origin/"$BRANCH"
   else
     error "Error: Branch '$BRANCH' does not exist on remote."
-    exit 1
   fi
 fi
