@@ -1,40 +1,74 @@
 #!/bin/bash
+# ========================
+# Constants and setup
+# ========================
 readonly SCRIPT_DIR="${HOME}/.scripts"
 source "${SCRIPT_DIR}/_utils.sh"
 
-# 使用方法
+# ========================
+# Usage/help message
+# ========================
 function usage {
 	cat <<EOF
-$(basename ${0}) is a tool for ...
+$(basename "$0") - [Brief description of what this script does]
 
-USAGE:
-	$(basename ${0}) <CONTENTS>
+Usage:
+  $(basename "$0") [options]
+
+Description:
+  This script is a reusable Bash template with argument parsing, logging, and structured output.
+
+Options:
+  -x           Description for option X
+  -y           Description for option Y
+  -z           Description for option Z
+  -h           Show this help message and exit
+
+Examples:
+  $(basename "$0") -x
+  $(basename "$0") -y -z
+
 EOF
 }
 
-# 引数がない場合
-if [ $# = 0 ]; then
+# ========================
+# Argument parsing
+# ========================
+if [ $# -eq 0 ]; then
 	usage
-	exit
+	exit 1
 fi
 
-# オプションが指定された場合の処理
-while getopts "xzyh" optKey; do
+while getopts ":xzyh" optKey; do
 	case "$optKey" in
 	x)
-		info "Option X selected"
+		info "✅ Option X selected"
 		;;
 	y)
-		info "Option Y selected"
+		info "✅ Option Y selected"
 		;;
 	z)
-		info "Option Z selected"
+		info "✅ Option Z selected"
+		;;
+	h)
+		usage
+		exit 0
 		;;
 	*)
+		warning "⚠️  Invalid option: -$OPTARG"
 		usage
-		exit
+		exit 1
 		;;
 	esac
 done
 
-success "Done."
+# ========================
+# Main logic
+# ========================
+
+title "🎯 Running main script logic..."
+
+# TODO: Add main operations here
+# echo "Do something..."
+
+success "🎉 Done."

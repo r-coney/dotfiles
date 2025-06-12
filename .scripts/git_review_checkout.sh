@@ -3,9 +3,28 @@
 readonly SCRIPT_DIR="${HOME}/.scripts"
 source "${SCRIPT_DIR}/_utils.sh"
 
+function usage {
+  cat <<EOF
+$(basename "$0") - Checkout a remote Git branch safely
+
+Usage:
+  $(basename "$0") <branch-name>
+
+Description:
+  This script fetches the given branch from origin.
+  - If the local branch exists, it checks it out and pulls latest changes.
+  - If the branch only exists on the remote, it creates and checks out a new local branch.
+  - If the branch does not exist remotely, it exits with an error.
+
+Example:
+  $(basename "$0") feature/awesome-update
+EOF
+}
+
 BRANCH=$1
 
 if [ -z "$BRANCH" ]; then
+  usage
   error "Usage: $0 branch_name"
 fi
 
@@ -26,3 +45,5 @@ else
     error "Error: Branch '$BRANCH' does not exist on remote."
   fi
 fi
+
+success "Done."
