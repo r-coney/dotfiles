@@ -9,20 +9,20 @@ create_symlink() {
 	local target="$2"
 
 	if [ -e "$target" ] || [ -d "$target" ]; then
-		echo "⚠️  '$target' already exists."
+		info "⚠️  '$target' already exists."
 		read -p "Do you want to overwrite it? (y/n): " choice
 		case "$choice" in
 		y | Y)
-			echo "🔁 Overwriting '$target' with symlink to '$source'"
+			info "🔁 Overwriting '$target' with symlink to '$source'"
 			rm -rf "$target"
 			ln -s "$source" "$target"
 			;;
 		*)
-			echo "⏭️  Skipping symlink creation for '$target'"
+			info "⏭️  Skipping symlink creation for '$target'"
 			;;
 		esac
 	else
-		echo "🔗 Creating symlink: '$target' → '$source'"
+		info "🔗 Creating symlink: '$target' → '$source'"
 		ln -s "$source" "$target"
 	fi
 }
