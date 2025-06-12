@@ -33,7 +33,7 @@ function error() {
 
 # print warning
 function warning() {
-	printf "${COLOR_YELLOW}Warning: ${COLOR_NONE}$1"
+	printf "${COLOR_YELLOW}Warning: ${COLOR_NONE}$1\n"
 }
 
 # check OS
