@@ -1,12 +1,14 @@
 #!/bin/bash
-
 readonly COLOR_GRAY="\033[1;38;5;243m"
 readonly COLOR_NONE="\033[0m"
-readonly COLOR_RED="\033[38;2;226;120;120m"
-readonly COLOR_YELLOW="\033[38;2;226;200;120m"
+readonly COLOR_RED="\e[38;2;226;119;120m"
+readonly COLOR_ORANGE="\e[38;2;226;164;120m"
+readonly COLOR_YELLOW="\e[38;2;180;190;130m"
 readonly COLOR_TITLE='\033[36;1m'
 readonly COLOR_INFO='\033[34;5m'
+readonly COLOR_WARNING="${COLOR_ORANGE}"
 readonly COLOR_SUCCESS='\033[34;1m'
+readonly COLOR_ERROR="${COLOR_RED}"
 
 # print title
 function title() {
@@ -27,13 +29,13 @@ function success() {
 
 # print error
 function error() {
-	printf "${COLOR_RED}Error: ${COLOR_NONE}$1\n"
+	printf "${COLOR_ERROR}Error: ${COLOR_NONE}$1\n"
 	exit 1
 }
 
 # print warning
 function warning() {
-	printf "${COLOR_YELLOW}Warning: ${COLOR_NONE}$1\n"
+	printf "${COLOR_WARNING}Warning: ${COLOR_NONE}$1\n"
 }
 
 # check OS
