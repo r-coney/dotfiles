@@ -1,8 +1,41 @@
 #!/bin/bash
-
 readonly DOTFILES=$(pwd)
 readonly SCRIPT_DIR="${DOTFILES}/.scripts"
-source "${SCRIPT_DIR}/_common.sh"
+source "${SCRIPT_DIR}/_utils.sh"
+
+# 使用方法
+function usage {
+	cat <<EOF
+Usage: $(basename "$0") [options]
+
+Description:
+  This script sets up initial macOS preferences by verifying the OS,
+  and installing Xcode Command Line Tools and Homebrew if not already installed.
+
+Options:
+  -h    Show this help message and exit
+
+Examples:
+  Run from your dotfiles root directory:
+
+    \$ ./setUp/init.sh
+
+EOF
+}
+
+# オプションが指定された場合の処理
+while getopts "h" optKey; do
+	case "$optKey" in
+	h)
+		usage
+		exit 0
+		;;
+	*)
+		usage
+		exit 1
+		;;
+	esac
+done
 
 verifyIfMacOS
 
