@@ -1,7 +1,7 @@
 .PHONY: vscode
 
 # Do everything
-all: init link neovim0.9.5 brew vscode
+all: init link neovim0.9.5 brew npm vscode
 
 # Set initial preference.
 init:
@@ -19,6 +19,12 @@ neovim0.9.5:
 brew:
 	.scripts/brew_package.sh
 
+# Install Homebrew packages.
+npm:
+	echo "Installing npm packages..."
+	npm install
+	echo "npm packages installed."
+
 # Install VSCode extensions.
 vscode:
-	.scripts/code_extension.sh
+	.scripts/code_extension.sh -i
