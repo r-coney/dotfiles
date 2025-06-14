@@ -8,5 +8,11 @@
 	},
 	"vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
 	"vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
-	"git.openRepositoryInParentFolders": "never"
+	"git.openRepositoryInParentFolders": "never",
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }
